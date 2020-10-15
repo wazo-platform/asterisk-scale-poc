@@ -40,18 +40,26 @@ sudo chown -R $UID:$UID $PWD
 
 # patches
 patch wazo_appgateway_client/api_client.py <<EOF
-243a244,254
->     def deserialize_obj(self, data, response_type):
->         """Deserializes data into an object.
-> 
->         :param data: data to be deserialized.
->         :param response_type: class literal for
->             deserialized object, or string of class name.
-> 
->         :return: deserialized object.
->         """
->         return self.__deserialize(data, response_type)
-> 
+--- wazo_appgateway_client/api_client.py-orig   2020-10-15 13:42:11.308531230 -0400
++++ wazo_appgateway_client/api_client.py        2020-10-15 13:45:08.596403430 -0400
+@@ -286,6 +286,17 @@
+ 
+         return self.__deserialize(data, response_type)
+ 
++    def deserialize_obj(self, data, response_type):
++        """Deserializes data into an object.
++ 
++        :param data: data to be deserialized.
++        :param response_type: class literal for
++            deserialized object, or string of class name.
++ 
++        :return: deserialized object.
++        """
++        return self.__deserialize(data, response_type)
++
+     def __deserialize(self, data, klass):
+         """Deserializes dict, list, str into an object.
+ 
 EOF
 
 rm -rf /tmp/rest-api
