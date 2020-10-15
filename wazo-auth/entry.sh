@@ -1,6 +1,6 @@
 #!/bin/sh
 
-until ./bin/wazo-auth-init-db --pg_db_uri postgresql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgresql/$POSTGRES_DB --auth_db_uri postgresql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgresql/$POSTGRES_DB; do
+until wazo-auth-init-db --pg_db_uri postgresql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgresql/$POSTGRES_DB --auth_db_uri postgresql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgresql/$POSTGRES_DB; do
     sleep 1
 done
 
