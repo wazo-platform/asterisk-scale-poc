@@ -17,6 +17,7 @@ This will start :
 * The Conference demo app
 * wazo-auth
 * wazo-websocketd
+* wazo-applicationd
 
 ## How to test
 
@@ -41,7 +42,7 @@ Once registered you can call the number `7001`, you will be placed in a conferen
 docker-compose scale asterisk=2
 ```
 
-## How to start wazo-applicationd
+## How to start wazo-applicationd (standalone)
 
 ```
 Clone https://github.com/wazo-platform/wazo-applicationd
@@ -50,8 +51,8 @@ pip install -r requirements.txt
 wazo-applicationd --debug
 ````
 
-By default it will listen 8000. API documentation is available at
-http://localhost:8000/docs
+By default it will listen 9515. API documentation is available at
+http://localhost:9515/docs
 
 
 ## Applicationd demo app
@@ -99,6 +100,8 @@ http://localhost:8000/docs
 ```
 
 ## Resources
+* https://github.com/wazo-platform/wazo-applicationd
+  Application services for creating application
 
 * https://github.com/wazo-platform/wazo-asyncio-ari-client
   Asyncio ARI library supporting extra parameter in order to handle communication with the API Gateway
