@@ -15,6 +15,8 @@ This will start :
 * Rabbitmq
 * The Text-to-Speech demo app
 * The Conference demo app
+* wazo-auth
+* wazo-websocketd
 
 ## How to test
 
@@ -39,6 +41,78 @@ Once registered you can call the number `7001`, you will be placed in a conferen
 docker-compose scale asterisk=2
 ```
 
+## How to start wazo-applicationd
+
+```
+cd wazo-applicationd
+pip install -r requirements.txt
+wazo-applicationd --debug
+````
+
+By default it will listen 8000. API documentation is available at
+http://localhost:8000/docs
+
+
+## Generate client library
+
+### appgateway-client
+
+Use by applicationd thus as to be generated before using applicationd. 
+
+```
+cd wazo-applicationd-client
+./openapi-gen.sh
+```
+
+### applicationd-client
+
+```
+cd wazo-applicationd-client
+./openapi-gen.sh
+```
+## Applicationd demo app
+
+* apps/wazo-app-test
+
+
+## Architecture
+
+```
+                     +----------+
+                     |          |
+      +--------------+ asterisk +---------------+
+      |              |          |               |
+      |              +----+-----+               |
+      |                   |                     |
+      |                   |                     |
+      |                   |                     |
+      |                   |                     |
++-----+------+         +--+----+           +----+---+
+|            |         |       |           |        |
+|  rabbitmq  |         | nginx |           | consul |
+|            |         |       |           |        |
++-----+----+-+         +---+---+           +---+----+
+      |    |               |                   |
+      |    |               |                   |
+      |    +----------+    |    +--------------+
+      |               |    |    |
+      |               |    |    |
++-----+------+      +-+----+----+--+
+|            |      |              |
+| websocketd |      | applicationd |
+|            |      |              |
++-----+------+      +-------+------+
+      |                     |
+      |                     |
+      |                     |
+      |                     |
+      |                     |
+      |      +-------+      |
+      |      |       |      |
+      +------+  app  +------+
+             |       |
+             +-------+
+```
 
 ## Resources
 
