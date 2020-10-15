@@ -1,4 +1,4 @@
-FROM wazopbx/wazo-auth
+FROM wazoplatform/wazo-auth
 
 RUN apt-get update
 RUN apt-get install -y jq

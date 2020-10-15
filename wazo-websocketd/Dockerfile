@@ -1,4 +1,4 @@
-FROM wazopbx/wazo-websocketd
+FROM wazoplatform/wazo-websocketd
 
 ADD ./entry.sh /entry.sh
 
