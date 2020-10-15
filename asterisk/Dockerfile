@@ -1,4 +1,4 @@
-from debian:buster
+FROM debian:buster
 
 WORKDIR /tmp
 RUN apt-get update
@@ -13,7 +13,7 @@ RUN apt-get install -y git librabbitmq-dev wget
 #    git jq asterisk-sounds-main strace net-tools lsof \
 #    procps vim libjansson-dev curl
 
-RUN git clone https://github.com/asterisk/asterisk.git /usr/src/asterisk
+RUN git clone --single-branch --branch 17 https://github.com/asterisk/asterisk.git /usr/src/asterisk
 
 WORKDIR /usr/src/asterisk
 
