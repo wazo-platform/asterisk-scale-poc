@@ -120,6 +120,12 @@ services:
     build: ./wazo-applicationd
     ports:
       - 9515:9515/tcp
+    environment:
+      - WAZO_CONSUL_HOST=consul
+      - WAZO_AMQP_HOST=rabbitmq
+      - WAZO_HOST=0.0.0.0
+      - WAZO_HEALTHCHECK_URL=http://192.168.0.1:9515/status
+      - WAZO_API_ENDPOINT=http://asterisk:8088
     links:
       - wazo-auth
       - asterisk
