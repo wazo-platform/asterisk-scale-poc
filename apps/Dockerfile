@@ -1,7 +1,7 @@
 from python:3.7-buster
 
-RUN apt-get update
-RUN apt-get -y install sox libsox-fmt-mp3
+RUN apt update
+RUN apt install -y sox libsox-fmt-mp3
 
 ADD app.py /apps/
 ADD astts.py /apps/

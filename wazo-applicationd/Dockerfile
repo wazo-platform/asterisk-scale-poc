@@ -28,4 +28,4 @@ EXPOSE 9500
 
 # Activate virtual env
 ENV PATH="/opt/venv/bin:$PATH"
-CMD ["wazo-applicationd", "-d"]
+CMD ["wazo-applicationd", "--debug"]

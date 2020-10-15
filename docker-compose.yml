@@ -116,6 +116,15 @@ services:
     links:
       - wazo-auth
       - rabbitmq
+  wazo-applicationd:
+    build: ./wazo-applicationd
+    ports:
+      - 9515:9515/tcp
+    links:
+      - wazo-auth
+      - asterisk
+      - consul
+      - rabbitmq
 
 networks:
     default:
