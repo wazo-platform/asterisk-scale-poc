@@ -20,7 +20,7 @@ setup(
         "httptools==0.0.13",
         "idna==2.8",
         "importlib-metadata==1.3.0",
-        "kombu==4.6.7",
+        "kombu==4.6.11",
         "more-itertools==8.0.2",
         "multidict==4.7.3",
         "pydantic==1.3",
